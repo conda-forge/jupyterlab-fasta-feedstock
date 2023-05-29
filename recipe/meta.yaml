@@ -41,7 +41,7 @@ about:
   license: BSD-3-Clause
   license_file:
     - LICENSE
-    - jupyterlab-fasta/labextension/static/third-party-licenses.json
+    - jupyterlab_fasta/labextension/static/third-party-licenses.json
 
 extra:
   recipe-maintainers:
