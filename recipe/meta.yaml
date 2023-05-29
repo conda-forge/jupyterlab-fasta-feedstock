@@ -1,12 +1,13 @@
-{% set version = "3.2.0" %}
+{% set name = "jupyterlab-fasta" %}
+{% set version = "3.3.0" %}
 
 package:
-  name: jupyterlab-fasta
-  version: 3.2.0
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jupyterlab-fasta/jupyterlab-fasta-{{ version }}.tar.gz
-  sha256: e9ce735b59bf25a0882dd8fdfe0de4b612e1890adf96eef859ae259b2bedc2b5
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 7597c7b735966481db83c3156ac3d22105a0fade3b3686eb7433fb64c013cb5a
 
 build:
   number: 0
@@ -15,8 +16,10 @@ build:
 
 requirements:
   host:
-    - jupyter-packaging >=0.7.9,<0.8.0
-    - jupyterlab >=3,<4
+    - hatch-jupyter-builder >=0.5
+    - hatch-nodejs-version
+    - hatchling >=1.5.0
+    - jupyterlab >=4,<5
     - pip
     - python >=3.6
   run:
@@ -29,7 +32,7 @@ test:
     - grep -iE "@jupyterlab/fasta-extension.*{{ version }}.*ok.*jupyterlab-fasta" labextensions
   requires:
     - pip
-    - jupyterlab >=3.0,<4
+    - jupyterlab >=3.0
     - m2-grep  # [win]
 
 about:
